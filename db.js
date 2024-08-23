@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-const mongoURL = 'mongodb://localhost:27017/hotels';
+const mongoURL = process.env.MONGODB_URL_LOCAL;   // running locally
+// const mongoURL = process.env.MONGODB_URL;           // running mongodb atlas
 
 mongoose.connect(mongoURL, {
     // useNewUrlParser: true,
@@ -22,3 +24,7 @@ db.on('disconnected', ()=> {
 
 // export the database connection
 module.exports = db;
+
+
+
+// username - harjotsingh2k19 and password = kWDtKZOi8WbQUZLm
