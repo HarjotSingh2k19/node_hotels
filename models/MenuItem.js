@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const menuItemSchema = new mongoose.Schema({
     name: {
@@ -27,6 +28,7 @@ const menuItemSchema = new mongoose.Schema({
         default: 0
     }
 })
+
 
 
 const MenuItem = mongoose.model('MenuItem', menuItemSchema);
