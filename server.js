@@ -96,7 +96,8 @@ app.get('/idli', (req, res) => {
 const personRoutes = require('./routes/personRoutes');
 const menuItemRoutes = require('./routes/menuItemRoutes.js');
 
-app.use('/person', localAuthMiddleware, personRoutes);
+// app.use('/person', localAuthMiddleware, personRoutes);
+app.use('/person', personRoutes);
 app.use('/menu',menuItemRoutes);
 
 

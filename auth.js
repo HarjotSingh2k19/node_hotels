@@ -15,6 +15,7 @@ passport.use(new LocalStrategy(async (USERNAME, PASSWORD, done) => {
         if(isPasswordMatch){
             return done(null, user);
         } else{
+            
             return done(null, false, {message: 'Incorrect password'});
         }
 
