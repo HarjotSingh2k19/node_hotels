@@ -53,13 +53,13 @@ router.post('/signup', async (req,res) => {
 router.post('/login', async (req, res) => {
     try{
         // extract username and password from request body
-        const {username, password} = req.body;
+        const {userTypedName, userTypedPassword} = req.body;
 
         // find the user by username
-        const user = await Person.findOne({username: username});
+        const user = await Person.findOne({username: userTypedName});
 
         // if user doest not exist or password does not match, return error
-        if(!user || !(await user.comparePassword(password))){
+        if(!user || !(await user.comparePassword(userTypedPassword))){
             return res.status(401).json({error: 'Invalid username or password'});
         }
 
@@ -88,7 +88,7 @@ router.get('/profile', jwtAuthMiddleware, async (req, res) => {
         const userId = userData.id;
         const user =  await Person.findById(userId);
 
-        res.status(200).json({user});
+        res.status(200).json(user);
     } catch(err){
         console.log(err);
         res.status(500).json({error: 'Internal Server Error'});
