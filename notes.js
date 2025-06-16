@@ -4,8 +4,10 @@ var age = 24;
 const addNumber = function(a,b){
     return a+b;
 } 
+const subtractNumber = (a,b) => a-b;
 
 module.exports = {
     age,
-    addNumber
+    addNumber,
+    subtractNumber
 };

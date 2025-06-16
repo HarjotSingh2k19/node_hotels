@@ -11,7 +11,7 @@ mongoose.connect(mongoURL, {
 
 const db = mongoose.connection;
 
-// event listener
+// event listeners
 db.on('connected', ()=> {
     console.log('Connected to MongoDB server');
 })
@@ -23,7 +23,9 @@ db.on('disconnected', ()=> {
 })
 
 // export the database connection
-module.exports = db;
+module.exports = {
+    db
+}
 
 
 

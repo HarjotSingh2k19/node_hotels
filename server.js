@@ -1,3 +1,10 @@
+// Lecture - 1
+// var a = 5;
+// var b = 6;
+// var ans = a+b;
+// console.log("answer: " + ans);
+
+// console.log(typeof ans);
 
 // Lecture - 2
 
@@ -14,6 +21,9 @@
 
 // var result = notes.addNumber(age,18);
 // console.log(result);
+
+// var result2 = notes.subtractNumber(age,18);
+// console.log(result2);
 
 
 // var data = ["person","person", 1,2 , 1, 2, 'name', 'age', '2'];
@@ -33,7 +43,7 @@
 
 // const add = function(a,b, callback){
 //     var result = a+b;
-//     console.log(result);
+//     console.log(result);  // main function work complete
 //     callback();
 // }
 
@@ -72,11 +82,14 @@ const logRequest = (req, res, next) => {
     next();
 }
 
+
 app.use(logRequest);
 
 
 app.use(passport.initialize());
 const localAuthMiddleware = passport.authenticate('local', {session: false});
+
+
 
 app.get('/', function(req, res){
     res.send('Welcome to our hotel')
@@ -93,13 +106,13 @@ app.get('/idli', (req, res) => {
 })
 
 
+
+
 const personRoutes = require('./routes/personRoutes');
 const menuItemRoutes = require('./routes/menuItemRoutes.js');
 
-// app.use('/person', localAuthMiddleware, personRoutes);
 app.use('/person', personRoutes);
 app.use('/menu',menuItemRoutes);
-
 
 
 app.listen(PORT, ()=>{
